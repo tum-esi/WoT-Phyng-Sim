@@ -1,0 +1,10 @@
+wheel
+Flask==2.0.2
+Flask-RESTful==0.3.9
+gdown==4.2.0
+gmsh==4.9.1
+numpy==1.22.1
+numpy-stl==2.16.3
+psutil==5.9.0
+PyFoam==2021.6
+python-utils==3.1.0

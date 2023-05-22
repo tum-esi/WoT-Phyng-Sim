@@ -1,0 +1,32 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "WoPObject",
+  "description": "An abstract Phyng",
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "type": {
+      "description": "Phyng type",
+      "type": "string",
+      "readOnly": true,
+      "writeOnly": false
+    },
+    "location": {
+      "description": "Phyng location",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

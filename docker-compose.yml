@@ -1,0 +1,62 @@
+version: '3.1'
+
+services:
+  backend-python:
+    user: foam
+    privileged: true
+    build:
+      context: ./backend/python
+    ports:
+      - 6000:5000
+    command: "python3.8 server.py"
+    environment:
+      - CASES_STORAGE=/wop/cases
+    container_name: wop_backend_python
+    volumes:
+      - cases_volume:/wop/cases
+    networks:
+      - wop-network
+  backend-nodejs:
+    build:
+      context: ./backend/nodejs
+    ports:
+      - 8080:8080
+      - 8081:8081
+    command: "npm run start"
+    environment:
+      - PYTHON_SERVER=http://wop_backend_python:5000
+    depends_on:
+      - backend-python
+    container_name: wop_backend_nodejs 
+    networks:
+      - wop-network
+  backend-paraview:
+    build:
+      context: ./backend/paraview
+    ports:
+      - 11111:11111
+    environment:
+      - CORES=8
+    container_name: wop_backend_paraview
+    volumes:
+      - cases_volume:/wop/cases
+  # evaluation:
+  #   build:
+  #     context: ./evaluation
+  #   tty: true
+  #   networks:
+  #     - wop-network
+  #   depends_on:
+  #     - backend-nodejs
+  #   container_name: wop_evaluation
+  #   volumes:
+  #     - ./evaluation/results:/app/results
+
+volumes:
+  cases_volume:
+
+networks:
+  wop-network:
+    driver: bridge
+    ipam:
+      driver: default

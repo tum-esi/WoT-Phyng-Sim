@@ -1,0 +1,51 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "WoPActuator",
+  "description": "An abstract actuator",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "basePhyng.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "dimensions": {
+      "description": "Phyng dimensions",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "rotation": {
+      "description": "Phyng rotation",
+      "type": "array",
+      "items": {
+        "units": "deg",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "stlName": {
+      "description": "Phyng geometry STL name",
+      "type": "string",
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

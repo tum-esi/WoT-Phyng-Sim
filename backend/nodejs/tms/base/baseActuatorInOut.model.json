@@ -1,0 +1,110 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "WoPActuatorInOut",
+  "description": "",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "basePhyng.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseActuator.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "dimensionsIn": {
+      "description": "Phyng input dimensions",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "locationIn": {
+      "description": "Phyng input location",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "rotationIn": {
+      "description": "Phyng input rotation",
+      "type": "array",
+      "items": {
+        "units": "deg",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "stlNameIn": {
+      "description": "Phyng input geometry STL name",
+      "type": "string",
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "dimensionsOut": {
+      "description": "Phyng output dimensions",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "locationOut": {
+      "description": "Phyng output location",
+      "type": "array",
+      "items": {
+        "units": "m",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "rotationOut": {
+      "description": "Phyng output rotation",
+      "type": "array",
+      "items": {
+        "units": "deg",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    },
+    "stlNameOut": {
+      "description": "Phyng output geometry STL name",
+      "type": "string",
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

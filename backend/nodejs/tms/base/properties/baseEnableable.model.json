@@ -1,0 +1,20 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPEnableableProperties",
+  "properties": {
+    "enabled": {
+      "description": "WoP simulated object is enabled",
+      "type": "boolean",
+      "readOnly": true,
+      "writeOnly": false
+    }
+  },
+  "actions": {
+    "turnOn": {
+      "description": "Turn on a WoP simulated object"
+    },
+    "turnOff": {
+      "description": "Turn off a WoP simulated object"
+    }
+  }
+}

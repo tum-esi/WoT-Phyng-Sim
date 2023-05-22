@@ -1,0 +1,20 @@
+{
+  "properties": {
+    "sysProperties": {
+      "type": "object",
+      "properties": {
+        "background": {
+          "type": "string",
+          "enum": [
+            "air",
+            "water"
+          ]
+        }
+      },
+      "required": [
+        "background"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

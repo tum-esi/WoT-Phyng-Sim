@@ -1,0 +1,16 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPRotatableProperties",
+  "properties": {
+    "angle": {
+      "description": "WoP simulated Phyng rotation degree",
+      "type": "number",
+      "items": {
+        "units": "deg",
+        "type": "number"
+      },
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPSimulator",
+  "description": "A Web of Phyngs CFD simulator",
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "cases": {
+      "description": "Get the available cases in the simulator",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Name of the case",
+            "type": "string"
+          },
+          "hrefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "errors": {
+      "description": "Get all errors appeared during simulation of the cases",
+      "type": "object",
+      "properties": {
+        "texts": {
+          "description": "Error shortened texts array",
+          "type": "array",
+          "items": {
+            "description": "Shortened error text",
+            "type": "string"
+          }
+        },
+        "traces": {
+          "description": "Full error traces array",
+          "type": "array",
+          "items": {
+            "description": "Full error trace",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "postProcessingServer": {
+      "description": "Post processing server settings",
+      "type": "object",
+      "properties": {
+        "hostname": {
+          "description": "Server hostname",
+          "type": "string"
+        },
+        "port": {
+          "description": "Server port",
+          "type": "int"
+        },
+        "multiClients": {
+          "description": "Server support for multiple clients",
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "actions": {
+    "createCase": {
+      "description": "Create case with a specified name",
+      "type": "string"
+    },
+    "deleteCase": {
+      "description": "Delete case with a specified name",
+      "type": "string"
+    },
+    "startPostProcessingServer": {
+      "description": "Start post-processing server"
+    },
+    "stopPostProcessingServer": {
+      "description": "Stop post-processing server"
+    }
+  }
+}

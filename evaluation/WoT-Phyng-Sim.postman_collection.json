@@ -1,0 +1,915 @@
+{
+	"info": {
+		"_postman_id": "0c306121-9875-4bc6-8660-3b2631d986ae",
+		"name": "WoP Node API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25439001"
+	},
+	"item": [
+		{
+			"name": "Get Simulator TD",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Simulator Cases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/properties/cases",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"properties",
+						"cases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Case TD",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"heater12\",\n    \"type\": \"heater\",\n    \"dimensions\": [3, 4, 0.3],\n    \"location\": [0, 0, 0]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update postprocessing server Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"hostname\": \"localhost\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/properties/postProcessingServer",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"properties",
+						"postProcessingServer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start postprocessing server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[]"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/startPostProcessingServer",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"actions",
+						"startPostProcessingServer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stop postprocessing server",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/stopPostProcessingServer",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"actions",
+						"stopPostProcessingServer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get errors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/properties/errors",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"properties",
+						"errors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/chtCase\"\n        }\n    ],\n    \"title\": \"smarthome\",\n    \"sysProperties\": {\n        \"background\": \"air\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/createCase",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"actions",
+						"createCase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create case with parameters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/chtCase\"\n        }\n    ],\n    \"title\": \"smarthome\",\n    \"sysProperties\": {\n        \"meshQuality\": 99,\n        \"cores\": 4,\n        \"parallel\": true,\n        \"blocking\": false,\n        \"realtime\": true,\n        \"endTime\": 0,\n        \"background\": \"air\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/createCase",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"actions",
+						"createCase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get case mesh quality",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"geo",
+						"properties",
+						"meshQuality"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post case mesh quality",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "99",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"geo",
+						"properties",
+						"meshQuality"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"smarthome\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/deleteCase",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"wopsimulator",
+						"actions",
+						"deleteCase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add sensor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"sensor\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/sensor\"\n        }\n    ],\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"title\": \"sensor\",\n    \"phyProperties\": {\n        \"location\": [1, 1, 1],\n        \"field\": \"T\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove phyng",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"heater\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/removePhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"removePhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get simulation time",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"heater12\",\n    \"type\": \"heater\",\n    \"dimensions\": [3, 4, 0.3],\n    \"location\": [0, 0, 0]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/properties/time",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"properties",
+						"time"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Heater",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"heater\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/chtHeater\"\n        }\n    ],\n    \"title\": \"heater\",\n    \"phyProperties\": {\n        \"dimensions\": [0.1, 0.8, 0.5],\n        \"location\": [0.1, 1, 0.2],\n        \"material\": \"copper\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create AC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"ac\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"title\": \"ac\",\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/chtAc\"\n        }\n    ],\n    \"phyProperties\": {\n        \"dimensions\": [0.5, 0.8, 0.5],\n        \"location\": [0.1, 0.5, 2],\n        \"dimensionsIn\": [0.15, 0.6, 0],\n        \"locationIn\": [0.35, 0.6, 2.5],\n        \"dimensionsOut\": [0, 0.6, 0.2],\n        \"locationOut\": [0.6, 0.6, 2.1]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add window",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"window\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"title\": \"window\",\n    \"phyProperties\": {\n        \"dimensions\": [1, 0, 1],\n        \"location\": [1, 4, 1]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Walls",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"walls\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/chtWalls\"\n        }\n    ],\n    \"title\": \"walls\",\n    \"phyProperties\": {\n        \"dimensions\": [3, 4, 3],\n        \"location\": [0, 0, 0]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clean case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/clean",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"clean"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/run",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"run"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stop case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/stop",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"stop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Postporcess case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/postprocess",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"postprocess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Heater temperature",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "400",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-heater/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-heater",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensor value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-sensor/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-sensor",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC temperature",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "283"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC enabled",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/properties/enabled",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"properties",
+						"enabled"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC velocity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "10"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/properties/velocity",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"properties",
+						"velocity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC angle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "45"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/properties/angle",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"properties",
+						"angle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC turn on",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "10"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/actions/turnOn",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"actions",
+						"turnOn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AC turn off",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "10"
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-ac/actions/turnOff",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-ac",
+						"actions",
+						"turnOff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Window open",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-window/actions/open",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-window",
+						"actions",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Window close",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-window/actions/close",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-window",
+						"actions",
+						"close"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Window velocity",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    0,\n    -1,\n    0\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-window/properties/velocity",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-window",
+						"properties",
+						"velocity"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get room temperature",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-walls/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-walls",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

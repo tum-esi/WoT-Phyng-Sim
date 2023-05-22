@@ -1,0 +1,78 @@
+{
+  "properties": {
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          }
+        },
+        "required": ["href", "rel"]
+      },
+      "contains": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "const": "type"
+          },
+          "type": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          }
+        },
+        "required": ["href", "rel"]
+      },
+      "minItems": 1
+    },
+    "sysProperties": {
+      "type": "object",
+      "properties": {
+        "meshQuality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "cleanLimit": {
+          "type": "number",
+          "minimum": 0
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "parallel": {
+          "type": "boolean"
+        },
+        "cores": {
+          "type": "number",
+          "minimum": 1
+        },
+        "realtime": {
+          "type": "boolean"
+        },
+        "endTime": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "required": [
+    "sysProperties"
+  ]
+}

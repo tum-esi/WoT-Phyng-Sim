@@ -1,0 +1,18 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPVelocityProperties",
+  "properties": {
+    "velocity": {
+      "description": "WoP simulated object fluid velocity",
+      "type": "array",
+      "items": {
+        "units": "m/s",
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3,
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

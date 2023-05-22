@@ -1,0 +1,60 @@
+{
+  "properties": {
+    "@type": {
+      "type": "string"
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          }
+        },
+        "required": ["href", "rel"]
+      },
+      "contains": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string"
+          },
+          "rel": {
+            "const": "type"
+          },
+          "type": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          }
+        },
+        "required": ["href", "rel"]
+      },
+      "minItems": 1
+    },
+    "phyProperties": {
+      "type": "object",
+      "properties": {
+        "material": {
+          "type": "string",
+          "enum": [
+            "copper",
+            "aluminium"
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

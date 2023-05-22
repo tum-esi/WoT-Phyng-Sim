@@ -1,0 +1,20 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPOpenableProperties",
+  "properties": {
+    "opened": {
+      "description": "WoP simulated object is opened",
+      "type": "boolean",
+      "readOnly": true,
+      "writeOnly": false
+    }
+  },
+  "actions": {
+    "open": {
+      "description": "Open a WoP simulated object"
+    },
+    "close": {
+      "description": "Close a WoP simulated object"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPHeatingProperties",
+  "properties": {
+    "temperature": {
+      "description": "WoP simulated object temperature",
+      "units": "K",
+      "type": "number",
+      "minimum": 0,
+      "readOnly": false,
+      "writeOnly": false
+    }
+  }
+}

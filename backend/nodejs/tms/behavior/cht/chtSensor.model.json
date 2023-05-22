@@ -1,0 +1,25 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPSensor",
+  "description": "A sensor",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "basePhyng.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "value": {
+      "description": "Phyng value",
+      "readOnly": true,
+      "writeOnly": false
+    }
+  }
+}

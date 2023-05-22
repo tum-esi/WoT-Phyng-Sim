@@ -1,0 +1,38 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "title": "WoPCHTAc",
+  "description": "",
+  "links" : [
+    {
+      "rel": "tm:extends",
+      "href": "baseActuatorInOut.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseHeating.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseVelocity.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseRotatable.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseEnableable.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  }
+}

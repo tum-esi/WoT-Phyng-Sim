@@ -1,0 +1,129 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "WoPCase",
+  "description": "A simulation case",
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "meshQuality": {
+      "description": "WoP simulation mesh quality",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "cleanLimit": {
+      "description": "WoP simulation clean limit time",
+      "type": "number",
+      "minimum": 0
+    },
+    "blocking": {
+      "description": "WoP simulation blocking run enabled",
+      "type": "boolean"
+    },
+    "parallel": {
+      "description": "WoP simulation parallel run enabled",
+      "type": "boolean"
+    },
+    "cores": {
+      "description": "WoP simulation amount of cores for parallel run",
+      "type": "number",
+      "minimum": 1
+    },
+    "initialized": {
+      "description": "WoP simulation was initialized",
+      "type": "boolean"
+    },
+    "phyngs": {
+      "description": "WoP simulation Phyngs",
+      "type": "array",
+      "items": {
+        "description": "Phyng name, type and HREFs",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "Phyng name",
+            "type": "string"
+          },
+          "type": {
+            "description": "Phyng type",
+            "type": "string"
+          },
+          "hrefs": {
+            "description": "Phyng HREFs",
+            "type": "array",
+            "items": {
+              "description": "Phyng HREF",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "time": {
+      "description": "WoP simulation time parameters",
+      "type": "object",
+      "properties": {
+        "real": {
+          "description": "WoP real time during the request",
+          "type": "string"
+        },
+        "simulation": {
+          "description": "WoP simulation time during the request",
+          "type": "string"
+        },
+        "difference": {
+          "description": "WoP time difference between real and simulation times",
+          "type": "number",
+          "unit": "ms"
+        }
+      }
+    },
+    "realtime": {
+      "description": "WoP simulation realtime run enabled",
+      "type": "boolean"
+    },
+    "endTime": {
+      "description": "WoP simulation end time",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "actions": {
+    "clean": {
+      "description": "Clean WoP simulation case"
+    },
+    "setup": {
+      "description": "Setup WoP simulation case"
+    },
+    "run": {
+      "description": "Run WoP simulation case"
+    },
+    "stop": {
+      "description": "Stop WoP simulation case"
+    },
+    "postprocess": {
+      "description": "Post-process WoP simulation case"
+    },
+    "addPhyng": {
+      "description": "Add a Phyng to WoP simulation case",
+      "properties": {}
+    },
+    "removePhyng": {
+      "description": "Remove a Phyng from WoP simulation case",
+      "type": "string"
+    },
+    "uploadSTL": {
+      "description": "Upload an ASCII STL geometry file",
+      "properties": {
+        "file": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

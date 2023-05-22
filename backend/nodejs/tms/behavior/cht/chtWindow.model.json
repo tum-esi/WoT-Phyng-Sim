@@ -1,0 +1,34 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "WoPCHTWindow",
+  "description": "A window",
+  "links" : [
+    {
+      "rel": "tm:extends",
+      "href": "baseActuator.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseHeating.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseVelocity.model.json",
+      "type": "application/td+json"
+    },
+    {
+      "rel": "tm:extends",
+      "href": "baseOpenable.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  }
+}

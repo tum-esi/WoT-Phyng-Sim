@@ -1,0 +1,25 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type" : "tm:ThingModel",
+  "title": "ChtCase",
+  "links": [
+    {
+      "rel": "tm:extends",
+      "href": "baseCase.model.json",
+      "type": "application/td+json"
+    }
+  ],
+  "description": "",
+  "security": "nosec_sc",
+  "securityDefinitions": {
+    "nosec_sc": {
+      "scheme": "nosec"
+    }
+  },
+  "properties": {
+    "background": {
+      "description": "",
+      "type": "string"
+    }
+  }
+}

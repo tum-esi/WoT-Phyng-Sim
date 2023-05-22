@@ -1,0 +1,25 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+./Allrun.pre
+
+#runApplication foamSetupCHT
+
+#foamDictionary -disableFunctionEntries -entry internalField -set "uniform 348" 0/heater/T
+#foamDictionary -disableFunctionEntries \
+#    -entry internalField -set "uniform 348" 0/heater/T
+
+runApplication decomposePar -copyZero -allRegions
+#runApplication decomposePar
+
+runParallel $(getApplication)
+
+runApplication reconstructPar -allRegions
+#runApplication reconstructPar
+
+paraFoam -touchAll
+
+#------------------------------------------------------------------------------
+
