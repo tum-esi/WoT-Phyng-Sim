@@ -26,6 +26,11 @@ Web of Phyngs proposes the extension of existing Thing Descriptions (TDs) with C
 
 ## What can you do with WoT Phyngs Simulator
 
+- Construct your own custom physical simulation environment for testing your IoT devices
+- Add your things into the simulation
+- Run your simulation in "near-realtime" and interract with your devices as if they were real
+- Run your simulation in a regular mode and post-process the results
+
 ## Getting started
 
 ### Prerequisites
