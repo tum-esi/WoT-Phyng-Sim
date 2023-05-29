@@ -47,13 +47,13 @@ Make sure to install the ParaView with an appropriate version ([ParaView v5.6.0]
 
 **Step 1:** Clone the repository to your local machine.
 
-```
+```console
 git clone https://github.com/tum-esi/WoT-Phyng-Sim.git
 ```
 
 **Step 2:** Navigate into the main folder and build the containers.
 
-```
+```console
 cd WoT-Phyng-Sim
 docker-compose build
 ```
@@ -64,13 +64,13 @@ After buidling the containers, start the simulation in normal or detached modes:
 
 Normal mode:
 
-```
+```console
 docker-compose up
 ```
 
 Detached mode:
 
-```
+```console
 docker-compose up -d
 ```
 
