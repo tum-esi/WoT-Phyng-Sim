@@ -6,6 +6,7 @@
 2. [What can you do with WoT Phyngs Simulator](#what-can-you-do-with-wot-phyngs-simulator)
 3. [Getting started](#getting-started)
 - [Prerequisites](#prerequisites)
+- [Installing from sources](#installing-from-sources)
 - [Starting the Simulator](#starting-the-simulator)
 - [Setting up a Sample Simulation](#setting-up-a-sample-simulation)
 - [Control the Things](#control-the-things)
