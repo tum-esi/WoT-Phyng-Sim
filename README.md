@@ -43,6 +43,21 @@ If you want to visualize and/or analyze the simulated data, you might want to ac
 
 Make sure to install the ParaView with an appropriate version ([ParaView v5.6.0](https://www.paraview.org/download/)).
 
+### Installing from sources
+
+**Step 1:** Clone the repository to your local machine.
+
+```
+git clone https://github.com/tum-esi/WoT-Phyng-Sim.git
+```
+
+**Step 2:** Navigate into the main folder and build the containers.
+
+```
+cd WoT-Phyng-Sim
+docker-compose build
+```
+
 ### Starting the Simulator
 
 ### Setting up a Sample Simulation
