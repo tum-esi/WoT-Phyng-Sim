@@ -76,9 +76,78 @@ docker-compose up -d
 
 ### Setting up a Sample Simulation
 
+We will use Postman to show the easiest example with.
+
+**Step 1:** Enter your workspace where you would want to export the collections or create a new one.
+
+**Step 2:** Add the sample collection, which is stored in [evaluation folder](evaluation)/[WoT-Phyng-Sim.postman_collection.json](evaluation/WoT-Phyng-Sim.postman_collection.json).
+
+![Screenshot Postman Collection Adding](.github/images/screenshot_add_collection.png)
+
+**Step 3:** Add the sample environment, which is stored in [evaluation folder](evaluation)/[localhost.postman_environment.json](evaluation/localhost.postman_environment.json). Set it up if needed.
+
+![Screenshot Postman Environment Adding](.github/images/screenshot_add_environment.png)
+
+**Step 4:** Verify the collection and environment, they should look similiar to the screenshots below:
+
+![Screenshot Postman Collection Verify](.github/images/screenshot_verify_collection.png)
+
+![Screenshot Postman Environment Verify](.github/images/screenshot_verify_environment.png)
+
+**Step 5:** Select the used environment.
+
+![Screenshot Postman Environment Connect](.github/images/screenshot_connect_environment.png)
+
+**Step 6:** Try to `Get Simulator TD`, The response should be of a similiar look:
+
+![Screenshot Postman Test Connection](.github/images/screenshot_test_connection.png)
+
+If the response is OK, then the server connection is established.
+
+The response body gives the paths to simulator Thing Description and can be used to interract with it using WoT Scripting API directly.
+
+**Step 7:** Create a test simulation case using `Create Case` POST request to the wopsimulator. The response should be OK with an empty body. If everything went well, then you could view the existing cases using `Get Simulator Cases` request:
+
+![Screenshot Postman Get Cases](.github/images/screenshot_get_cases.png)
+
+The `hrefs` of each case display the path to their corresponding Thing Description and can be used to interract with them using WoT Scripting API directly.
+
+**Step 8:** Add Walls, Heater and a Sensor with corresponding commands. You can verify if the phyngs were added to the case with `Get Case Phyngs` request:
+
+![Screenshot Postman Get Case Phyngs](.github/images/screenshot_get_case_phyngs.png)
+
+The `hrefs` of each phyng display the path to their corresponding Thing Description and can be used to interract with them using WoT Scripting API directly.
+
+**Step 9:** Now that the simulation case is preliminary set up, one case start the case by sending `Run case` request. The simulator will then prepare the simulation case by mapping the objects into the mesh and setting up the files. The case is setup to run with 50% mesh quality with 1 core, the end time of 10 seconds and in "realtime". 
+
+You can later stop the case simulation by sending `Stop case` request.
+
 ### Control the Things
 
+You can read the properties of devices and invoke actions during the simulation run, e.g., read the temperature or set the heater temperature.
+
+For that, you can use the requests provided in the example: GET `Sensor value`, PUT `Heater temperature`. The latter command would set the temperature of the heater to 400 K.
+
+![Screenshot Postman Reading Sensor Temperature](.github/images/screenshot_reading_temperature.png)
+
+![Screenshot Postman Setting Heater Temperature](.github/images/screenshot_setting_temperature.png)
+
 ### Access the ParaView Server
+
+Once the case simulation is done (stopped), you can post-process the results and view them using ParaView.
+
+**Step 1:** Post-process the case using `Postprocess case` request.
+**Step 2:** Start ParaView and select `Connect`:
+
+![Screenshot ParaView Connect](.github/images/screenshot_paraview_connect1.png)
+
+**Step 3:** Add Server, in this example the host is `localhost` and the password is `11111`, also set a name for your server.
+
+**Step 4:** After the server is connected, you can see it being added in the left panel.
+
+![Screenshot ParaView Server Connected](.github/images/screenshot_paraview_connect2.png)
+
+**Step 5:** You can now use ParaView as if it was a local ParaView instance. The tutorial on how to work with it is out of scope of this documentation. But once everything is setup, you will be able to visualize and analyze your data as shown in the example screenshot below:
 
 ![Heater Simulation](.github/images/heater_simulation.gif)
 
