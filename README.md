@@ -30,6 +30,7 @@ Web of Phyngs proposes the extension of existing Thing Descriptions (TDs) with C
 - Add your things into the simulation
 - Run your simulation in "near-realtime" and interract with your devices as if they were real
 - Run your simulation in a regular mode and post-process the results
+- Visualize and analyze the data in the post-run
 
 ## Getting started
 
