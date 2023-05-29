@@ -155,6 +155,12 @@ Once the case simulation is done (stopped), you can post-process the results and
 
 ## Best Practices
 
+- Do not use too low of a mesh quality, the data might not be usable or the case would not be even created (depends on the objects complexity/amount).
+- Do not use too high of a mesh quality if you want to achieve the "realtime" and lack the resourceful server. The simulator is currently build on OpenFOAM version that utilizes CPU, not GPU. Hence, even the most powerful PC builds might not handle "realtime" in some "simple" cases.
+- Be realistic about the simulation geometric boundaries and do not put Phyngs outside the enclosed space (walls).
+- Windows, doors and other flat surfaces must lay exactly on some other surface, i.e., walls. When using custom STLs, it is even more complex to fulfill this.
+- Keep in mind that the using high quality STL and a coarse mesh would not bring much results. Sometimes it might give more problems while setting up.
+
 ## Errors and Known Problems
 
 ## Adding or Working on Issues
