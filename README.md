@@ -48,7 +48,7 @@ Make sure to install the ParaView with an appropriate version ([ParaView v5.6.0]
 
 ![Heater Simulation](.github/images/heater_simulation.gif)
 
-## Best Practises
+## Best Practices
 
 ## Errors and Known Problems
 
