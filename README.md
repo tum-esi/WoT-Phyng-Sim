@@ -60,6 +60,20 @@ docker-compose build
 
 ### Starting the Simulator
 
+After buidling the containers, start the simulation in normal or detached modes:
+
+Normal mode:
+
+```
+docker-compose up
+```
+
+Detached mode:
+
+```
+docker-compose up -d
+```
+
 ### Setting up a Sample Simulation
 
 ### Control the Things
