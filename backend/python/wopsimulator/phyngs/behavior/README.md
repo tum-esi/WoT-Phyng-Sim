@@ -1,4 +1,4 @@
-# Web of Phyngs Simulator Phyngs
+# Web of Phyngs Simulator Phyngs Behaviors
 
 ## Folder Structure
 
