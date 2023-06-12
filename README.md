@@ -165,6 +165,18 @@ Once the case simulation is done (stopped), you can post-process the results and
 
 ## Errors and Known Problems
 
+- Simulation might collapse occasionally if the simulation/Phyngs parameters do not match well, e.g.
+    - Bad mesh quality choice
+    - Phyngs are placed outside the bounding mesh (e.g., walls)
+    - Phyngs placement close to each other (might result in meshes of Phyngs to merge)
+    - Too many Phyngs are added (depends on the simulation)
+    - etc.
+- Custom STLs do not always work as expected, i.e., not always rendered properly
+- Custom STLs with complex geometry might not be properly rendered to a lower mesh quality simulation (e.g., sometimes lower mesh quality results in STLs being rendered with holes inside them)
+- New Things added to the WoP Simulator with the same name will result in enumeration of consequentally added Things (e.g., added `walls` in the first simulation case will result in `walls` name of a Thing, but adding `walls` to the second simulation case will result in `walls2` Thing name and so one)
+
+The problems can be detected by directly reading the `/errors` path of the server(-s) and/or observed by the simulation not progressing in time. However, the latter alone might also indicate that simulation case is complex and takes time to process. On possible solution is clean the simulation and try playing with parameters.
+
 ## Adding or Working on Issues
 
 ### Adding Issues
