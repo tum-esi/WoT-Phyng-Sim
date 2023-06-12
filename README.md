@@ -14,6 +14,8 @@
 4. [Best Practises](#best-practises)
 5. [Errors and Known Problems](#errors-and-known-problems)
 6. [Adding or Working on Issues](#adding-or-working-on-issues)
+    - [Adding Issues](#adding-issues)
+    - [Working on Issues](#working-on-issues)
 
 ## Web of Things Simulations using CFD
 
@@ -165,4 +167,51 @@ Once the case simulation is done (stopped), you can post-process the results and
 
 ## Adding or Working on Issues
 
+### Adding Issues
 
+When adding a new issue, please...
+
+1) Use the following **title style**:
+
+    ```
+    [<Topic>] <short description of issue>
+    ```
+    E.g.: [Python] Improve simulation speed
+
+2) Add a **priority label** to indicate the importance of the issue.   
+
+    Existing priority labels are: 
+      - prio-low
+      - prio-mid
+      - prio-high.
+
+3) Add a label indicating the **type** of the issue.   
+
+    Existing type labels are: 
+    - Bug
+    - Enhancement (A new feature or functionality)
+    - Improvement (Improvement of existing features/ functionality)
+
+4) Add it to an **Overview-Ticket** (that fits best)  
+    Existing overview-tickets are: 
+    - [[NodeJS]](https://github.com/tum-esi/WoT-Phyng-Sim/issues/2)
+    - [[Python]](https://github.com/tum-esi/WoT-Phyng-Sim/issues/3)
+    - [[ParaView]](https://github.com/tum-esi/WoT-Phyng-Sim/issues/4)
+    - [[Misc]](https://github.com/tum-esi/WoT-Phyng-Sim/issues/5)
+
+### Working on Issues
+
+When you want to work on an issue, please ... 
+
+1) Assign issue to yourself: So that multiple persons aren't working on the same issue.
+
+2) Create a new branch, and use the following naming convention:   
+    ```
+    <type-of-issue>-<topic>-<short-description>
+    ```
+    _type-of-issue_ refers to this:   
+    E.g. _bugfix-server-crash-on-start_ or _improvement-updated-thing-models_
+
+3) Link the according issue in the pull request: When finishing the issue and when creating a pull-request to master, link the issue. The person who merges the pull-request to master can then close the issue.
+
+4) Closed issue also needs to be striked-through on the according overview-issue.
