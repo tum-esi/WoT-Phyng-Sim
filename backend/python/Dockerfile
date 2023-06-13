@@ -52,8 +52,8 @@ RUN mkdir -p /wop/cases
 RUN chown -R foam:foam /wop/cases
 RUN chmod -R 0777 /wop/cases
 
-# Copy project
-COPY . ./
+# Create errors file
+RUN touch errors.json
 RUN chmod -R 0777 errors.json
 
 # Change User
@@ -64,4 +64,9 @@ COPY ./requirements.txt .
 RUN echo -e "\n\n\n********** Installing Python project dependencies **********\n\n\n" && \
     pip3.8 install --user -r requirements.txt
 
+# Copy workaround
+COPY ./workaround.py .
 RUN python3.8 workaround.py
+
+# Copy project
+COPY . ./

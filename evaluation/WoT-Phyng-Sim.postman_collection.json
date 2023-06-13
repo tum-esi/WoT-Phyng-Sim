@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0c306121-9875-4bc6-8660-3b2631d986ae",
+		"_postman_id": "eb17c10e-21ef-47e8-93f5-917975fdfb6e",
 		"name": "WoP Node API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25439001"
+		"_exporter_id": "14468842"
 	},
 	"item": [
 		{
@@ -41,113 +41,6 @@
 						"wopsimulator",
 						"properties",
 						"cases"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Case TD",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"heater12\",\n    \"type\": \"heater\",\n    \"dimensions\": [3, 4, 0.3],\n    \"location\": [0, 0, 0]\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/smarthome",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"smarthome"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update postprocessing server Copy",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"hostname\": \"localhost\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/properties/postProcessingServer",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"wopsimulator",
-						"properties",
-						"postProcessingServer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Start postprocessing server",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[]"
-				},
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/startPostProcessingServer",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"wopsimulator",
-						"actions",
-						"startPostProcessingServer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Stop postprocessing server",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/wopsimulator/actions/stopPostProcessingServer",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"wopsimulator",
-						"actions",
-						"stopPostProcessingServer"
 					]
 				}
 			},
@@ -235,57 +128,6 @@
 			"response": []
 		},
 		{
-			"name": "Get case mesh quality",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"geo",
-						"properties",
-						"meshQuality"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Post case mesh quality",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "99",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"geo",
-						"properties",
-						"meshQuality"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Delete case",
 			"request": {
 				"method": "POST",
@@ -316,51 +158,31 @@
 			"response": []
 		},
 		{
-			"name": "Add sensor",
+			"name": "Get Case TD",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"@type\": \"sensor\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/sensor\"\n        }\n    ],\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"title\": \"sensor\",\n    \"phyProperties\": {\n        \"location\": [1, 1, 1],\n        \"field\": \"T\"\n    }\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome",
 					"protocol": "http",
 					"host": [
 						"{{server_ip}}"
 					],
 					"port": "{{node_port}}",
 					"path": [
-						"smarthome",
-						"actions",
-						"addPhyng"
+						"smarthome"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Remove phyng",
+			"name": "Get Case Phyngs",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\"heater\"",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/removePhyng",
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/properties/phyngs",
 					"protocol": "http",
 					"host": [
 						"{{server_ip}}"
@@ -368,8 +190,29 @@
 					"port": "{{node_port}}",
 					"path": [
 						"smarthome",
-						"actions",
-						"removePhyng"
+						"properties",
+						"phyngs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get case mesh quality",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"geo",
+						"properties",
+						"meshQuality"
 					]
 				}
 			},
@@ -409,7 +252,97 @@
 			"response": []
 		},
 		{
-			"name": "Create Heater",
+			"name": "Post case mesh quality",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "99",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/geo/properties/meshQuality",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"geo",
+						"properties",
+						"meshQuality"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove phyng",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"heater\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/removePhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"removePhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Sensor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"@type\": \"sensor\",\n    \"@context\": \"https://www.w3.org/2019/wot/td/v1\",\n    \"security\": \"nosec_sc\",\n    \"links\": [\n        {\n            \"rel\": \"type\",\n            \"href\": \"http://localhost:8081/tms/cht/sensor\"\n        }\n    ],\n    \"securityDefinitions\": {\n        \"nosec_sc\": {\n            \"scheme\": \"nosec\"\n        }\n    },\n    \"title\": \"sensor\",\n    \"phyProperties\": {\n        \"location\": [1, 1, 1],\n        \"field\": \"T\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome/actions/addPhyng",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome",
+						"actions",
+						"addPhyng"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Heater",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -439,7 +372,7 @@
 			"response": []
 		},
 		{
-			"name": "Create AC",
+			"name": "Add AC",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -469,7 +402,7 @@
 			"response": []
 		},
 		{
-			"name": "Add window",
+			"name": "Add Window",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -499,7 +432,7 @@
 			"response": []
 		},
 		{
-			"name": "Create Walls",
+			"name": "Add Walls",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -622,6 +555,48 @@
 			"response": []
 		},
 		{
+			"name": "Get room temperature",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-walls/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-walls",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensor value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-sensor/properties/temperature",
+					"protocol": "http",
+					"host": [
+						"{{server_ip}}"
+					],
+					"port": "{{node_port}}",
+					"path": [
+						"smarthome-sensor",
+						"properties",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Heater temperature",
 			"request": {
 				"method": "PUT",
@@ -644,27 +619,6 @@
 					"port": "{{node_port}}",
 					"path": [
 						"smarthome-heater",
-						"properties",
-						"temperature"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Sensor value",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-sensor/properties/temperature",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"smarthome-sensor",
 						"properties",
 						"temperature"
 					]
@@ -885,27 +839,6 @@
 						"smarthome-window",
 						"properties",
 						"velocity"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get room temperature",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{server_ip}}:{{node_port}}/smarthome-walls/properties/temperature",
-					"protocol": "http",
-					"host": [
-						"{{server_ip}}"
-					],
-					"port": "{{node_port}}",
-					"path": [
-						"smarthome-walls",
-						"properties",
-						"temperature"
 					]
 				}
 			},
